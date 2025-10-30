@@ -9,11 +9,6 @@ public class Matrix {
 		
 	}
 	
-	public Matrix(int size) {
-		this.size = size;
-		init();
-	}
-	
 	public Integer getSize() {
 		return size;
 	}		
@@ -30,11 +25,19 @@ public class Matrix {
 	}
 	
 	// método de inicialização do grafo
-	public void init() {
+	public void initReseltMatrix() {
 		matrix = new Integer[getSize()][getSize()];
 		
 		for (int string=0; string<getSize();string++)
 			for(int column=0; column<getSize();column++)
 					matrix[string][column] = 0;
+	}
+	
+	public void initPrint() {		
+		for (int string=0; string<getSize();string++) {
+			for(int column=0; column<getSize();column++)
+					System.out.print(" " + (matrix[string][column] = 0));
+		System.out.printf("\n");
+		}
 	}
 }
