@@ -34,6 +34,8 @@
 					updateMatrix();
 					break;
 				case 4:
+					validationSamller();
+					read();
 					break;
 				}
 			}while(getOption() != 5);
@@ -105,6 +107,7 @@
 			return matrix.getSize();
 		}
 		
+		
 		public int updateMatrix() {
 			if (matrix.getSize() == null) {
 				matrix.setSize(0);
@@ -130,6 +133,11 @@
 				return 0;
 			}
 			
+			if (row == 0 || column == 0) {
+				System.out.println("Valor zero | Status[Não Salvo]");
+				return 0;
+			}
+			
 			if (value == 0) {
 				System.out.println("Valor 0 invalido! | Status[Não Salvo]");				
 				return 0;
@@ -149,6 +157,21 @@
 			System.out.println("UPDATE COM SUCESSO");
 			return matrix.update(row, column, value);
 		}		
+		
+		public int validationSamller() {
+			if (matrix.getSize() == null) {
+				matrix.setSize(0);
+				System.out.println("Tamanho não informado: [" +matrix.getSize()+"] | Matriz não tem meno valor");
+				return matrix.getSize();
+			}	
+			return matrix.getSize();
+		}
+		
+		// Menor valor
+		public void read() {
+			if (matrix.Readsmaller() != 0)
+				System.out.println("Menor valor: " + matrix.Readsmaller());
+		}
 	}
 
 	
