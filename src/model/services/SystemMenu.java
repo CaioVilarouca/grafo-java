@@ -105,7 +105,14 @@
 			return matrix.getSize();
 		}
 		
-		public void updateMatrix() {
+		public int updateMatrix() {
+			if (matrix.getSize() == null) {
+				matrix.setSize(0);
+				System.out.println("Tamanho não informado: [" +matrix.getSize()+"] | Matriz não pode sofrer UPDATE");
+				return matrix.getSize();
+			}	
+			
+			System.out.println("Informe linha, coluna e valor: ");
 			System.out.print("Linha: ");
 			int row = scanner.nextInt();
 			System.out.print("Coluna: ");
@@ -113,8 +120,35 @@
 			System.out.print("Valor: ");
 			int value = scanner.nextInt();
 			
-			matrix.update(row, column, value);
-		}
+			if (row == column) {
+				System.out.println("Interseção é proibida | Status[Não Salvo]");
+				return 0;
+			}
+			
+			if (row < 0 || column < 0) {
+				System.out.println("Valor negativos | Status[Não Salvo]");
+				return 0;
+			}
+			
+			if (value == 0) {
+				System.out.println("Valor 0 invalido! | Status[Não Salvo]");				
+				return 0;
+			}
+			
+			if (value < 0) {
+				System.out.println("Valor negaivo! | Status[Não Salvo]");				
+				return 0;
+			}
+			
+			if (matrix.getMatrix()[row][column] > 0) {
+				System.out.printf("Nessa posição tem um valor gravado: %d \nDigite um novo valor para sobrepor ou o mesmo valor caso não queria:", matrix.getMatrix()[row][column]);		
+				int newValue = scanner.nextInt();
+				System.out.println("Valor informado: " + newValue + "\nUpdate com SUCESSO");
+				return matrix.update(row, column, newValue);
+			}
+			System.out.println("UPDATE COM SUCESSO");
+			return matrix.update(row, column, value);
+		}		
 	}
 
 	

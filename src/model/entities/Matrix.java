@@ -12,6 +12,7 @@ public class Matrix {
 	public Integer getSize() {
 		return size;
 	}		
+	
 	public void setSize(Integer size) {
 		this.size = size;
 	}
@@ -24,19 +25,20 @@ public class Matrix {
 		this.matrix = matrix;
 	}
 	
-	// método de resetar do grafo
+	// método de limpar e inicialização matriz
 	public void initReseltMatrix() {
-		this.matrix = new Integer[getSize()][getSize()];
-		
-		for (int row=0; row<getSize();row++)
-			for(int column=0; column<getSize();column++)
+		this.matrix = new Integer[getSize() + 1][getSize() + 1];
+	
+		for (int row=1; row <= getSize();row++)
+			for(int column=1; column <= getSize();column++)
 					matrix[row][column] = 0;
 	}
 	
-	// método de inicialização do grafo
+	// método de Imprimir
 	public void initPrint() {		
-		for (int row=0; row<getSize();row++) {
-			for(int column=0; column<getSize();column++)
+		
+		for (int row=1; row <= getSize();row++) {
+			for(int column=1; column <= getSize();column++)
 					System.out.print(" " + matrix[row][column]);
 		System.out.printf("\n");
 		}
