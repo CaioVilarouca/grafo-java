@@ -27,9 +27,11 @@
 					matrix.initReseltMatrix();
 					break;
 				case 2:
+					validationPrint();
 					matrix.initPrint();
 					break;
 				case 3:
+					updateMatrix();
 					break;
 				case 4:
 					break;
@@ -90,7 +92,29 @@
 			}
 			System.out.println("Tamanho: [" + matrix.getSize() + "] | Status[Salvo]");
 			return matrix.getSize();
-		}						
+		}		
+		
+		// Regra de négocio de print
+		public int validationPrint() {
+			if (matrix.getSize() == null) {
+				matrix.setSize(0);
+				System.out.println("Tamanho não informado: [" +matrix.getSize()+"] | Matriz não pode ser imprimida");
+				return matrix.getSize();
+			}		
+			System.out.println("Tamanho: [" + matrix.getSize() + "] | Matriz imprimida com SUCESSO");
+			return matrix.getSize();
+		}
+		
+		public void updateMatrix() {
+			System.out.print("Linha: ");
+			int row = scanner.nextInt();
+			System.out.print("Coluna: ");
+			int column = scanner.nextInt();
+			System.out.print("Valor: ");
+			int value = scanner.nextInt();
+			
+			matrix.update(row, column, value);
+		}
 	}
 
 	

@@ -24,20 +24,26 @@ public class Matrix {
 		this.matrix = matrix;
 	}
 	
-	// método de inicialização do grafo
+	// método de resetar do grafo
 	public void initReseltMatrix() {
-		matrix = new Integer[getSize()][getSize()];
+		this.matrix = new Integer[getSize()][getSize()];
 		
-		for (int string=0; string<getSize();string++)
+		for (int row=0; row<getSize();row++)
 			for(int column=0; column<getSize();column++)
-					matrix[string][column] = 0;
+					matrix[row][column] = 0;
 	}
 	
+	// método de inicialização do grafo
 	public void initPrint() {		
-		for (int string=0; string<getSize();string++) {
+		for (int row=0; row<getSize();row++) {
 			for(int column=0; column<getSize();column++)
-					System.out.print(" " + (matrix[string][column] = 0));
+					System.out.print(" " + matrix[row][column]);
 		System.out.printf("\n");
 		}
+	}
+	
+	// Setando o valor no Array
+	public int update(int row, int column, int value) {
+		return this.matrix[row][column] = value;
 	}
 }
